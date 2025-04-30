@@ -1,7 +1,6 @@
 <?php
 // index.php arquivo padrão
 // Name: Projeto Integrador (PI I) Dev: Alex Miller
-// Versão: 1.0
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,6 +18,6 @@
             <input type="text" name="pesquisa" id="pesquisa" placeholder="Ex: Alex" required>
             <button type="submit">Pesquisar</button>
         </form>
-    </div>
+     </div>
 </body>
 </html>
