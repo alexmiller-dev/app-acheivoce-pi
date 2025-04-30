@@ -18,6 +18,44 @@
             <input type="text" name="pesquisa" id="pesquisa" placeholder="Ex: Alex" required>
             <button type="submit">Pesquisar</button>
         </form>
-     </div>
+
+        <?php
+        if (isset($_GET['pesquisa'])) {
+            $pesquisa = $_GET['pesquisa'];
+
+            // conexão com o banco de dados local
+            $servername = "localhost";
+            $username = "root"; // usuário padrão
+            $password = "";     // senha padrão
+            $dbname = "projeto_integrador"; // nome do banco de dados
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Conexão falhou: " . $conn->connect_error);
+            }
+
+            // consulta SQL para buscar o grupo
+            $sql = "SELECT * FROM grupos WHERE integrantes LIKE '%$pesquisa%'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                echo '<div class="resultado">';
+                while ($row = $result->fetch_assoc()) {
+                    echo '<div class="grupo">';
+                    echo '<strong>Grupo:</strong> ' . htmlspecialchars($row['nome_grupo']) . '<br>';
+                    echo '<strong>Integrantes:</strong> ' . htmlspecialchars($row['integrantes']) . '<br>';
+                    echo '<a href="' . htmlspecialchars($row['link_whatsapp']) . '" target="_blank"><button>Acessar Grupo no WhatsApp</button></a>';
+                    echo '</div>';
+                }
+                echo '</div>';
+            } else {
+                echo '<p class="mensagem">Nenhum resultado encontrado.</p>';
+            }
+
+            $conn->close();
+        }
+        ?>
+    </div>
 </body>
 </html>
