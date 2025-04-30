@@ -45,7 +45,6 @@
                     echo '<div class="grupo">';
                     echo '<strong>Grupo:</strong> ' . htmlspecialchars($row['nome_grupo']) . '<br>';
                     echo '<strong>Integrantes:</strong> ' . htmlspecialchars($row['integrantes']) . '<br>';
-					echo '<strong>numero:</strong> ' . htmlspecialchars($row['numero']) . '<br>';
                     echo '<a href="' . htmlspecialchars($row['link_whatsapp']) . '" target="_blank"><button>Acessar Grupo no WhatsApp</button></a>';
                     echo '</div>';
                 }
