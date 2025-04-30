@@ -14,8 +14,8 @@
     <div class="container">
         <h1>Achei Você - Encontre seu grupo do PI</h1>
         <form method="GET" action=""> <!-- formulario + método GET -->
-            <label for="pesquisa">Digite seu nome:</label>
-            <input type="text" name="pesquisa" id="pesquisa" placeholder="Ex: Alex" required>
+            <label for="pesquisa">Digite seu RA:</label>
+            <input type="text" name="pesquisa" id="pesquisa" placeholder="Ex: 1000009" required>
             <button type="submit">Pesquisar</button>
         </form>
 
@@ -45,6 +45,7 @@
                     echo '<div class="grupo">';
                     echo '<strong>Grupo:</strong> ' . htmlspecialchars($row['nome_grupo']) . '<br>';
                     echo '<strong>Integrantes:</strong> ' . htmlspecialchars($row['integrantes']) . '<br>';
+					echo '<strong>numero:</strong> ' . htmlspecialchars($row['numero']) . '<br>';
                     echo '<a href="' . htmlspecialchars($row['link_whatsapp']) . '" target="_blank"><button>Acessar Grupo no WhatsApp</button></a>';
                     echo '</div>';
                 }
